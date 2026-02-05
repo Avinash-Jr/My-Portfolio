@@ -243,7 +243,7 @@ const projects = [
       },
     ],
     image: adminDashboard,
-    source_code_link: "https://github.com/your-username/admin-dashboard",
+    source_code_link: "https://master.d24tu9zmu59bpl.amplifyapp.com/",
   },
 ];
 
