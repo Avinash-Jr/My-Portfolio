@@ -61,7 +61,7 @@ A modern 3D portfolio showcasing my projects, skills, and experience.
 - 💼 **LinkedIn:** https://www.linkedin.com/in/-Avinashkumar/
 - 🐙 **GitHub:** https://github.com/Avinash-Jr
 - 📷 **Instagram:** https://www.instagram.com/avi09__official/
-- 🌐 **Portfolio:** https://your-portfolio-link.vercel.app
+- 🌐 **Portfolio:** https://master.d23nfncmkyriis.amplifyapp.com/
 
 ---
 
