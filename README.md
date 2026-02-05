@@ -48,8 +48,7 @@ I specialize in crafting high-performance user interfaces using **React**, **Thr
 A modern 3D portfolio showcasing my projects, skills, and experience.
 
 **Tech Used:** React, Three.js, Framer Motion, Tailwind CSS  
-🔗 **Live:** https://your-portfolio-link.vercel.app  
-📂 **Repo:** https://github.com/Avinash-Jr/your-repo-name
+📂 **Repo:** https://github.com/Avinash-Jr/My-Portfolio
 
 ---
 
