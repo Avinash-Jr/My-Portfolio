@@ -1,47 +1,77 @@
-<div align="center">
-  <br />
-  <br />
+<p align="center">
+  <img src="./portfolio.png" alt="Avinash Kumar Full Stack Developer Portfolio" width="100%" />
+</p>
 
-  <div>
-    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
-    <img src="https://img.shields.io/badge/-Three_JS-black?style=for-the-badge&logoColor=white&logo=threedotjs&color=000000" alt="three.js" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-  </div>
+<h1 align="center">Avinash Kumar</h1>
 
-  <h3 align="center">A 3D Developer Portfolio</h3>
-</div>
+<p align="center">
+  Full Stack Developer | React | Three.js | Modern Web Applications
+</p>
 
 
+I specialize in crafting high-performance user interfaces using **React**, **Three.js**, and modern frontend tooling. I enjoy blending clean design with smooth animations and scalable architecture.
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+---
 
-- React.js
-- Three.js
-- React Three Fiber
-- React Three Drei
-- Email JS
-- Vite
-- Tailwind CSS
+## 🧠 About Me
 
-## <a name="features">🔋 Features</a>
+- 💻 Frontend Developer focused on **React & UI engineering**
+- 🌌 Experience with **3D web experiences (Three.js)**
+- ⚡ Strong in **performance optimization & clean code**
+- 🎯 Always learning, always improving
+- 📍 Open to internships, freelance & full-time opportunities
 
-👉 **Customizable 3D Hero Section**: Includes a 3D desktop model easily customizable to suit specific needs.
+---
 
-👉 **Interactive Experience and Work Sections**: Utilizes animations powered by framer motion for engaging user experience.
+## 🛠 Tech Stack
 
-👉 **3D Skills Section**: Showcases skills using 3D geometries through three.js and React Three fiber
+### 🚀 Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-0F172A?style=for-the-badge&logo=tailwindcss)
 
-👉 **Animated Projects and Testimonials**: Features animated sections using framer motion for projects and client testimonials.
+### 🌌 3D & Animations
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer)
 
-👉 **Contact Section with 3D Earth Model**:Integrates a 3D earth model with email functionality powered by emailjs.
+### ⚙️ Tools & Platforms
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel)
 
-👉 **3D Stars**: Generate stars progressively at random positions using Three.js for background display.
+---
 
-👉 **Consistent Animations**: Implements cohesive animations throughout the website using framer motion.
+## 🌟 Featured Project
 
-👉 **Responsive Design**: Ensures optimal display and functionality across all devices.
+### 🌌 Developer Portfolio (3D)
+A modern 3D portfolio showcasing my projects, skills, and experience.
 
-and many more, including code architecture and reusability 
+**Tech Used:** React, Three.js, Framer Motion, Tailwind CSS  
+🔗 **Live:** https://your-portfolio-link.vercel.app  
+📂 **Repo:** https://github.com/Avinash-Jr/your-repo-name
+
+---
 
 
 
+---
+
+## 📬 Connect With Me
+
+- 💼 **LinkedIn:** https://www.linkedin.com/in/-Avinashkumar/
+- 🐙 **GitHub:** https://github.com/Avinash-Jr
+- 📷 **Instagram:** https://www.instagram.com/avi09__official/
+- 🌐 **Portfolio:** https://your-portfolio-link.vercel.app
+
+---
+
+## 📄 Resume
+
+📥 Resume available on my portfolio website  
+or reach out directly via LinkedIn.
+
+---
+
+⭐ If you like my work, feel free to follow or star my repositories!  
+Thanks for stopping by 😊
