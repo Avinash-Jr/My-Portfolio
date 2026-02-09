@@ -193,7 +193,7 @@ const projects = [
       },
     ],
     image: interviewcoders,
-    source_code_link: "https://interview-coders-1.onrender.com/",
+    source_code_link: "https://master.drq8xlj1li9h3.amplifyapp.com/",
   },
   {
     name: "Project Management Dashboard",
