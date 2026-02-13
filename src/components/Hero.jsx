@@ -112,7 +112,7 @@ const Hero = () => {
 
   {/* Download CV – Neon */}
  <a
-  href="/Avinash_Kumar_Devops_Engineer_Resume.pdf"
+  href="/Avinash_Kumar_SDE_Resume.pdf"
   download
   className="
     px-5 py-2.5 rounded-lg

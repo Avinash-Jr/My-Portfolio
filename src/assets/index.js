@@ -27,6 +27,7 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import enveu from "./company/enveu.png";
 import frontdoor from "./company/frontdoor.png";
+import TheRegiment from "./company/TheRegiment.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -62,6 +63,7 @@ export {
   starbucks,
   tesla,
   enveu,
+  TheRegiment,
   frontdoor,
   carrent,
   jobit,
