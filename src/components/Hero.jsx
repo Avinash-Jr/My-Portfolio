@@ -2,7 +2,6 @@ import { memo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
-
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
@@ -20,13 +19,10 @@ const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <header className="relative w-full h-screen mx-auto overflow-hidden">
-      {/* Text Content */}
+    <header className="relative mx-auto w-full min-h-screen min-h-[100svh] overflow-hidden">
       <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX}
-        flex flex-row items-start gap-5`}
+        className={`absolute inset-0 top-24 mx-auto flex max-w-7xl flex-row items-start gap-4 ${styles.paddingX} sm:top-[120px]`}
       >
-        {/* Accent Line */}
         <div
           className="flex flex-col justify-center items-center mt-5"
           aria-hidden="true"
@@ -35,8 +31,7 @@ const Hero = () => {
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
 
-        {/* Heading */}
-        <div>
+        <div className="max-w-2xl">
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I&apos;m{" "}
             <span className="text-[#915EFF] font-semibold">Avinash</span>
@@ -49,13 +44,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 3D Canvas */}
       <main className="absolute inset-0">
         <ComputersCanvas />
       </main>
 
-      {/* Scroll Indicator */}
-      <div className="absolute xs:bottom-14 bottom-28 w-full flex justify-center items-center flex-col gap-8">
+      <div className="absolute bottom-8 flex w-full flex-col items-center justify-center gap-6 px-6 xs:bottom-12 sm:bottom-14">
         <a
           href="#about"
           aria-label="Scroll to About section"
@@ -71,64 +64,48 @@ const Hero = () => {
           </div>
         </a>
 
-        {/* 🔗 Social Links + CV */}
-        {/* 🔗 Social Links + CV (Transparent background) */}
-<div className="flex items-center gap-6">
-  {/* LinkedIn */}
-  <a
-    href="https://www.linkedin.com/in/-Avinashkumar/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-white hover:text-cyan-400 transition-colors text-4xl"
-    aria-label="LinkedIn"
-  >
-    <FaLinkedinIn />
-  </a>
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <a
+            href="https://www.linkedin.com/in/-Avinashkumar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-3xl text-white transition-colors hover:text-cyan-400 sm:text-4xl"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn />
+          </a>
 
-  {/* GitHub */}
-  <a
-    href="https://github.com/Avinash-Jr"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-white hover:text-cyan-400 transition-colors text-4xl"
-    aria-label="GitHub"
-  >
-    <FaGithub />
-  </a>
+          <a
+            href="https://github.com/Avinash-Jr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-3xl text-white transition-colors hover:text-cyan-400 sm:text-4xl"
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </a>
 
-  {/* Instagram */}
-  <a
-    href="https://www.instagram.com/avi09__official/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-white hover:text-cyan-400 transition-colors text-4xl"
-    aria-label="Instagram"
-  >
-    <FaInstagram />
-  </a>
+          <a
+            href="https://www.instagram.com/avi09__official/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-3xl text-white transition-colors hover:text-cyan-400 sm:text-4xl"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
+          </a>
 
-  {/* Divider */}
-  <span className="w-px h-6 bg-white/30 mx-2" />
+          <span className="hidden h-6 w-px bg-white/30 sm:block" />
 
-  {/* Download CV – Neon */}
- <a
-  href="/Avinash_Kumar_SDE_Resume.pdf"
-  download
-  className="
-    px-5 py-2.5 rounded-lg
-    text-sm font-semibold text-white
-    bg-cyan-500
-    shadow-[0_0_15px_rgba(34,211,238,0.8)]
-    hover:bg-cyan-400
-    hover:shadow-[0_0_25px_rgba(34,211,238,1)]
-    transition-all duration-300
-  "
->
-  Download CV
-</a>
-
-</div>
-
+          <a
+            href="/Avinash_Kumar_SDE_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-cyan-500 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_15px_rgba(34,211,238,0.8)] transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,1)] sm:px-5 sm:py-2.5 sm:text-sm"
+          >
+            View Resume
+          </a>
+        </div>
       </div>
     </header>
   );

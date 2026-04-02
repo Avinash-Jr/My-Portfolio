@@ -13,11 +13,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(scrollTop > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,21 +25,22 @@ const Navbar = () => {
     <nav
       className={`${
         styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+      } fixed top-0 z-20 flex w-full items-center py-4 transition-colors duration-300 ${
+        scrolled ? "bg-primary/95 backdrop-blur-sm" : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className='mx-auto flex w-full max-w-7xl items-center justify-between gap-4'>
         <Link
           to='/'
           className='flex items-center gap-2'
           onClick={() => {
             setActive("");
-            window.scrollTo(0, 0);
+            setToggle(false);
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
+          <p className='flex text-[16px] font-bold text-white sm:text-[18px]'>
             Avinash &nbsp;
             <span className='sm:block hidden'> | Full Stack Developer | Software Developer</span>
           </p>
@@ -64,17 +61,24 @@ const Navbar = () => {
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+          <button
+            type='button'
+            className='flex h-10 w-10 items-center justify-center rounded-full bg-black/20'
+            aria-expanded={toggle}
+            aria-label={toggle ? "Close navigation menu" : "Open navigation menu"}
             onClick={() => setToggle(!toggle)}
-          />
+          >
+            <img
+              src={toggle ? close : menu}
+              alt=''
+              className='h-[24px] w-[24px] object-contain'
+            />
+          </button>
 
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } absolute right-0 top-16 z-10 mx-4 my-2 min-w-[180px] rounded-xl border border-white/10 black-gradient p-6 shadow-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (
@@ -84,7 +88,7 @@ const Navbar = () => {
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
-                    setToggle(!toggle);
+                    setToggle(false);
                     setActive(nav.title);
                   }}
                 >

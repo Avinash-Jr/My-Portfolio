@@ -3,37 +3,52 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
-const Earth = () => {
+const Earth = ({ isMobile }) => {
   const earth = useGLTF("./planet/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <primitive
+      object={earth.scene}
+      scale={isMobile ? 2.15 : 2.5}
+      position-y={0}
+      rotation-y={0}
+    />
   );
 };
 
 const EarthCanvas = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTouchDevice = useMediaQuery("(hover: none), (pointer: coarse)");
+
   return (
     <Canvas
       shadows
       frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      gl={{ antialias: !isMobile }}
+      style={{
+        pointerEvents: isTouchDevice ? "none" : "auto",
+        touchAction: "pan-y",
+      }}
       camera={{
-        fov: 45,
+        fov: isMobile ? 50 : 45,
         near: 0.1,
         far: 200,
-        position: [-4, 3, 6],
+        position: isMobile ? [-4, 3, 7] : [-4, 3, 6],
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
           enableZoom={false}
+          enablePan={false}
+          enableRotate={!isTouchDevice}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Earth />
+        <Earth isMobile={isMobile} />
 
         <Preload all />
       </Suspense>
@@ -42,3 +57,5 @@ const EarthCanvas = () => {
 };
 
 export default EarthCanvas;
+
+useGLTF.preload("./planet/scene.gltf");

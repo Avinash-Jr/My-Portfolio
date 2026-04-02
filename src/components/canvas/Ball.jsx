@@ -3,12 +3,12 @@ import { Canvas } from "@react-three/fiber";
 import {
   Decal,
   Float,
-  OrbitControls,
   Preload,
   useTexture,
 } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
@@ -38,14 +38,16 @@ const Ball = (props) => {
 };
 
 const BallCanvas = ({ icon }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <Canvas
       frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={isMobile ? [1, 1.25] : [1, 2]}
+      gl={{ antialias: !isMobile }}
+      style={{ touchAction: "pan-y", pointerEvents: "none" }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
         <Ball imgUrl={icon} />
       </Suspense>
 

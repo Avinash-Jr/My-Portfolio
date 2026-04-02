@@ -1,8 +1,9 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -30,40 +31,35 @@ const Computers = ({ isMobile }) => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Define a callback function to handle changes to the media query
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    // Add the callback function as a listener for changes to the media query
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Remove the listener when the component is unmounted
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTouchDevice = useMediaQuery("(hover: none), (pointer: coarse)");
+  const cameraSettings = isMobile
+    ? {
+        position: [14, 3, 6],
+        fov: 30,
+      }
+    : {
+        position: [20, 3, 5],
+        fov: 25,
+      };
 
   return (
     <Canvas
       frameloop='demand'
       shadows
-      dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      camera={cameraSettings}
+      gl={{ antialias: !isMobile }}
+      style={{
+        pointerEvents: isTouchDevice ? "none" : "auto",
+        touchAction: "pan-y",
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
+          enablePan={false}
+          enableRotate={!isTouchDevice}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
@@ -76,3 +72,5 @@ const ComputersCanvas = () => {
 };
 
 export default ComputersCanvas;
+
+useGLTF.preload("./desktop_pc/scene.gltf");

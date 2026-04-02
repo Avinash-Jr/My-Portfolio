@@ -15,6 +15,7 @@
 ========================= */
 html {
   color-scheme: dark; /* safer for mobile */
+  background: #050816;
 }
 
 * {
@@ -23,6 +24,31 @@ html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: #050816;
+}
+
+canvas {
+  display: block;
+}
+
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================

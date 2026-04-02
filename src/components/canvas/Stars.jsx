@@ -1,15 +1,19 @@
-import { useState, useRef, Suspense } from "react";
+import { useMemo, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
-const Stars = (props) => {
+const Stars = ({ count, rotationSpeed, ...props }) => {
   const ref = useRef();
-  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
+  const sphere = useMemo(
+    () => random.inSphere(new Float32Array(count), { radius: 1.2 }),
+    [count]
+  );
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+    ref.current.rotation.x -= delta * rotationSpeed;
+    ref.current.rotation.y -= delta * (rotationSpeed * 0.67);
   });
 
   return (
@@ -28,11 +32,23 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const prefersReducedMotion = useMediaQuery(
+    "(prefers-reduced-motion: reduce)"
+  );
+
   return (
-    <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+    <div className='absolute inset-0 h-full w-full pointer-events-none'>
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        dpr={isMobile ? [1, 1.25] : [1, 2]}
+        gl={{ antialias: !isMobile }}
+      >
         <Suspense fallback={null}>
-          <Stars />
+          <Stars
+            count={isMobile ? 2500 : 5000}
+            rotationSpeed={prefersReducedMotion ? 0.015 : 0.1}
+          />
         </Suspense>
 
         <Preload all />

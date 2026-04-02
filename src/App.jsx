@@ -15,14 +15,11 @@ import {
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative min-h-screen overflow-hidden bg-primary">
-        
-        {/* ⭐ Global Moving Stars Background */}
+      <div className="relative min-h-screen min-h-[100svh] overflow-x-hidden bg-primary">
         <div className="fixed inset-0 z-0 pointer-events-none">
           <StarsCanvas />
         </div>
 
-        {/* 🌐 Portfolio Content */}
         <div className="relative z-10">
           <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
             <Navbar />

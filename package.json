@@ -20,6 +20,7 @@
     "react-parallax-tilt": "^1.7.319",
     "react-router-dom": "^6.30.3",
     "react-vertical-timeline-component": "^3.6.0",
+    "rollup-plugin-visualizer": "^7.0.1",
     "three": "^0.182.0"
   },
   "devDependencies": {
