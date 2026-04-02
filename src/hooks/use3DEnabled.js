@@ -22,13 +22,22 @@ const detectWebGLSupport = () => {
   }
 };
 
-const use3DEnabled = () => {
+const use3DEnabled = ({
+  allowMobile = false,
+  allowTouch = false,
+  respectReducedMotion = true,
+} = {}) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTouchDevice = useMediaQuery("(hover: none), (pointer: coarse)");
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [hasWebGL] = useState(() => detectWebGLSupport());
 
-  return hasWebGL && !isMobile && !isTouchDevice && !prefersReducedMotion;
+  return (
+    hasWebGL &&
+    (allowMobile || !isMobile) &&
+    (allowTouch || !isTouchDevice) &&
+    (!respectReducedMotion || !prefersReducedMotion)
+  );
 };
 
 export default use3DEnabled;

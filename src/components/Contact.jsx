@@ -33,7 +33,7 @@ const ContactVisualFallback = () => (
 
 const Contact = () => {
   const formRef = useRef();
-  const enable3D = use3DEnabled();
+  const enable3D = use3DEnabled({ allowMobile: true, allowTouch: true });
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -149,7 +149,7 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] sm:h-[420px] h-[280px]'
+        className='xl:flex-1 xl:h-auto md:h-[550px] sm:h-[420px] h-[320px]'
       >
         {enable3D ? (
           <Suspense fallback={<ContactVisualFallback />}>

@@ -56,7 +56,7 @@ const HeroVisualFallback = () => (
 
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
-  const enable3D = use3DEnabled();
+  const enable3D = use3DEnabled({ allowMobile: true, allowTouch: true });
 
   return (
     <header className="relative mx-auto w-full min-h-screen min-h-[100svh] overflow-hidden">
