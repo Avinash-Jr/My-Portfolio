@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import {
   Decal,
   Float,
-  Preload,
   useTexture,
 } from "@react-three/drei";
 
@@ -50,8 +49,6 @@ const BallCanvas = ({ icon }) => {
       <Suspense fallback={<CanvasLoader />}>
         <Ball imgUrl={icon} />
       </Suspense>
-
-      <Preload all />
     </Canvas>
   );
 };

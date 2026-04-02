@@ -21,20 +21,13 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 import enveu from "./company/enveu.png";
 import frontdoor from "./company/frontdoor.png";
 import TheRegiment from "./company/TheRegiment.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
 import projectManagement from "../assets/projectManagement.png";
 import interviewcoders from "../assets/interviewcoders.png";
 import adminDashboard from "../assets/adminDashboard.png";
-import tripguide from "./tripguide.png";
 
 export {
   logo,
@@ -58,17 +51,10 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
   enveu,
   TheRegiment,
   frontdoor,
-  carrent,
-  jobit,
   projectManagement,
   interviewcoders,
   adminDashboard,
-  tripguide,
 };

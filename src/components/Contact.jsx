@@ -1,14 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { Suspense, lazy, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import use3DEnabled from "../hooks/use3DEnabled";
+
+const EarthCanvas = lazy(() => import("./canvas/Earth"));
+
+const ContactVisualFallback = () => (
+  <div className='flex h-full min-h-[280px] items-center rounded-2xl border border-white/10 bg-gradient-to-br from-[#151030] via-[#0f172a] to-[#050816] p-8'>
+    <div className='max-w-sm'>
+      <p className='text-xs uppercase tracking-[0.35em] text-cyan-300'>
+        Let&apos;s Build
+      </p>
+      <h4 className='mt-4 text-3xl font-semibold text-white'>
+        Fast, responsive web apps for mobile and desktop.
+      </h4>
+      <p className='mt-4 text-sm leading-6 text-secondary'>
+        The contact form stays fully functional even when the device switches to
+        a lighter, non-3D mode.
+      </p>
+      <a
+        href='mailto:avijr272@gmail.com'
+        className='mt-6 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-100 transition-colors hover:bg-cyan-400/20'
+      >
+        avijr272@gmail.com
+      </a>
+    </div>
+  </div>
+);
 
 const Contact = () => {
   const formRef = useRef();
+  const enable3D = use3DEnabled();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -27,13 +52,16 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send( 'service_ozu4esq',
-        'template_y3r0idt',
+    try {
+      const { default: emailjs } = await import("@emailjs/browser");
+
+      await emailjs.send(
+        "service_ozu4esq",
+        "template_y3r0idt",
         {
           from_name: form.name,
           to_name: "Avinash Kumar",
@@ -41,26 +69,23 @@ const Contact = () => {
           to_email: "avijr272@gmail.com",
           message: form.message,
         },
-        'QUzg8UJ26uVI973d3'
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
+        "QUzg8UJ26uVI973d3"
       );
+
+      setLoading(false);
+      alert("Thank you. I will get back to you as soon as possible.");
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+
+      alert("Ahh, something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -126,7 +151,13 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] sm:h-[420px] h-[280px]'
       >
-        <EarthCanvas />
+        {enable3D ? (
+          <Suspense fallback={<ContactVisualFallback />}>
+            <EarthCanvas />
+          </Suspense>
+        ) : (
+          <ContactVisualFallback />
+        )}
       </motion.div>
     </div>
   );
