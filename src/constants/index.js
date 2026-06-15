@@ -219,7 +219,7 @@ const projects = [
       },
     ],
     image: projectManagement,
-    source_code_link: "https://github.com/your-username/project-management-dashboard",
+    source_code_link: "https://master.dm6mxg0ln34x9.amplifyapp.com/",
   },
   {
     name: "Admin Dashboard",
