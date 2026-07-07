@@ -15,7 +15,6 @@ import {
   git,
   figma,
   docker,
-  threejs,
   enveu,
   TheRegiment,
   frontdoor,
@@ -95,10 +94,7 @@ const technologies = [
     name: "MongoDB",
     icon: mongodb,
   },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
+
   {
     name: "git",
     icon: git,
@@ -115,11 +111,23 @@ const technologies = [
 
 const experiences = [
   {
+    title: "Independent Software Engineer",
+    company_name: "Self-Employed",
+    icon: frontdoor,
+    iconBg: "#E6DEDD",
+    date: "APR 2026 - PRESENT",
+    points: [
+      "Architected and developed a scalable Video Interview Platform using Node.js, PostgreSQL, Prisma ORM,WebRTC, and Clerk, supporting secure concurrent 1-on-1 interview sessions with room-based access control and isolatedcode execution, enabling a reliable and production-ready technical interviewing experience.",
+      "Designed and implemented an event-driven real-time collaboration system using WebSockets, React.js,Node.js, and PostgreSQL, synchronizing project updates across multiple connected clients while achieving sub-50msREST API response times through database indexing and query optimization.",
+      "Containerized and automated application deployment using Docker, GitHub Actions, and AWS , enabling reproducible multi-environment builds, zero-downtime deployments , and a streamlined CI/CD workflow that significantly improved deployment reliability and release efficiency.",
+    ],
+  },
+  {
     title: "Software Developer",
     company_name: "The Regiment",
     icon: TheRegiment,
     iconBg: "#E6DEDD",
-    date: "DEC 2024 - AUG 2025",
+    date: "DEC 2024 - APR 2026",
     points: [
       "Built and deployed scalable full-stack applications using React.js, Next.js, Node.js, and Express.js, improving application performance by 30% through optimized architecture and API handling.",
       "Designed and integrated RESTful APIs with PostgreSQL and MongoDB, reducing query latency by 25% via indexing and database optimization.",
@@ -132,7 +140,7 @@ const experiences = [
     company_name: "Enveu Technologies",
     icon: enveu,
     iconBg: "#383E56",
-    date: "AUG 2024 - NOV 2025",
+    date: "DEC 2023 - NOV 2024",
     points: [
       "Designed and developed scalable full-stack applications using React.js, Next.js, Node.js, and Express.js, improving application performance by 30% and delivering high-quality features in agile sprints.",
       "Built and optimized RESTful APIs integrated with PostgreSQL and MongoDB, reducing response time by 25% through query optimization, indexing, and efficient data modeling.",

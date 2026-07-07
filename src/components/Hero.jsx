@@ -144,7 +144,7 @@ const Hero = () => {
           <span className="hidden h-6 w-px bg-white/30 sm:block" />
 
           <a
-            href="/Avinash_Kumar_Resume.pdf"
+            href="/Avinash_Kumar_Resume_SDE.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg bg-cyan-500 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_15px_rgba(34,211,238,0.8)] transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,1)] sm:px-5 sm:py-2.5 sm:text-sm"
